@@ -31,5 +31,6 @@ end
 group :test do
   gem 'capybara'
   gem 'fabrication'
+  gem 'launchy'
   gem 'shoulda'
 end
