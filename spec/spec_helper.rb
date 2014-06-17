@@ -40,3 +40,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+RSpec.configure do |rspec|
+  rspec.deprecation_stream = 'log/deprecations.log'
+end
