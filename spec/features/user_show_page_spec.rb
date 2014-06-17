@@ -6,7 +6,7 @@ feature "User visits profile page" do
   scenario "views own profile" do
     login_as kate
     visit user_path(kate)
-    page.should have_content("This is your profile")
+    page.should have_content("I'm a user's profile!!")
     page.should have_content("What would you like to do?")
     page.should have_content("Create a collection")
     page.should have_content("View collections")
