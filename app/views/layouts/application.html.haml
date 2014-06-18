@@ -4,14 +4,23 @@
     %title What I Got
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
   %body
     %header
-      %ul.devise_navigation
-        -if user_signed_in?
-          %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
-        -else
-          %li= link_to 'Sign in', new_user_session_path
+      %ul.main_navigation
+        %h4#welcome_tag Welcome to
+        %h1#title_tag What I Got
+        %h4#tagline your home media manager
+        -# %li= link_to 'Users' #, user    these links are likely incorrect but are placeholders
+        .devise_navigation
+          -if user_signed_in?
+            %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
+          -else
+            %li= link_to 'Sign in', new_user_session_path
+        - if user_signed_in?
+          %li= link_to "View collection" #("View my collection" , {:controller => 'Collections', :action => 'my_collections', :user => current_user.username}, :class => 'action my_collections')
+          %li= link_to "Edit collection" #, edit_collection_path
     .alert= alert
     .notice= notice
     = yield
