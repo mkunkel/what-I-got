@@ -1,3 +1,102 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$bkground_color: #a1d0fb;
+
+body{
+  background-color: $bkground_color;
+  color: gray;
+}
+
+.main_navigation {
+  margin: 0px;
+  background: rgba(0, 0, 0, .1);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  padding: .3em 0;
+  font-size: 1em;
+ h1, #title_tag {
+    color: white;
+    display: inline;
+    padding: 1em 0em;
+    position: relative;
+    top: .4em;
+  }
+  h4 {
+    color: gray;
+    display: inline;
+    padding: 0 .5em;
+    position: relative;
+    top: .1em;
+  }
+  #tagline {
+    padding: 1em .5em;
+    position: relative;
+    top: .8em;
+  }
+  li, a {
+    color: white;
+    float: right;
+    display: inline;
+    margin: 10px 5px;
+    text-decoration: none;
+  }
+  .devise_navigation{
+    float: right;
+    li{
+      display: inline;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.devise_view {
+  color: white;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 7em auto;
+  width: 40%;
+  height: 250px;
+  border-radius: 3em;
+  padding: 40px 40px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  label, input, a, button {
+    margin: 5px;
+  }
+}
+.notice {
+  float: right;
+  color: white;
+  position: relative;
+  top: 5em;
+  right: 2em;
+}
+.alert {
+  float: right;
+  color: white;
+  position: relative;
+  top: 0em;
+  right: 2em;
+}
+#sign_up {
+  float: right;
+  position: relative;
+  top: 6em;
+  right: 2em;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// don't forget the flash notice

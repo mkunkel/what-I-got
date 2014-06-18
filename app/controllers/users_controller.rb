@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
-  def profile
+  def show #profile
+    @user = User.find_by_username(params[:id])
+    render('show')
   end
 end

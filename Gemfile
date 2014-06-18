@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'compass-rails'
 gem 'devise'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
@@ -15,6 +16,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'zurb-foundation', '~> 4.0.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
