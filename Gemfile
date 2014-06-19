@@ -31,9 +31,11 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
+  gem 'pry'
 end
 
 group :test do
+  gem 'faker'
   gem 'capybara'
   gem 'fabrication'
   gem 'launchy'

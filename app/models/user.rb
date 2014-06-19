@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_database_authentication(conditions={})
-    self.where("username = ?", conditions[:email]).limit(1).first ||
-    self.where("email = ?", conditions[:email]).limit(1).first
+    self.find_by(username: conditions[:email]) ||
+    self.find_by(email: conditions[:email])
   end
 end
