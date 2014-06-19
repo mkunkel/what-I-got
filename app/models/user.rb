@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
+
+  has_one :collection
+
   validates :username, uniqueness: true, format: { with: /\A[a-zA-z0-9]+\z/, message: "username can only contain letters and numbers" }
   validates_presence_of :email
 
@@ -15,7 +18,7 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_database_authentication(conditions={})
-    self.where("username = ?", conditions[:email]).limit(1).first ||
-    self.where("email = ?", conditions[:email]).limit(1).first
+    self.find_by(username: conditions[:email]) ||
+    self.find_by(email: conditions[:email])
   end
 end
