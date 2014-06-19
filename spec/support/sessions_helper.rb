@@ -5,11 +5,7 @@ module Features
       fill_in 'Email', with: user.email
       fill_in 'Password', with: "password"
       click_button 'Sign in'
-      page.should have_content("You are now signed in.")
+      expect(page).to have_content("You are now signed in.")
     end
   end
-end
-
-RSpec.configure do |config|
-  config.include Features::SessionHelpers, type: :feature
 end
