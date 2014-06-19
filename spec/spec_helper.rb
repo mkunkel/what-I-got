@@ -40,8 +40,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-end
-
-RSpec.configure do |rspec|
-  rspec.deprecation_stream = 'log/deprecations.log'
-end
+  config.deprecation_stream = 'log/deprecations.log'
+  config.include Features::SessionHelpers, type: :feature
+ end
