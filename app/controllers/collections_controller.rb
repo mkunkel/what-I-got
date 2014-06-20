@@ -1,9 +1,9 @@
 class CollectionsController < ApplicationController
   # before_filter :load_books
 
-  # def index
-  #   @books = Book.all
-  # end
+  def index
+     @collections = Collection.all
+  end
   #
   # def show
   #   @book = Book.find(params[:id])
