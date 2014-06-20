@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: :show
+  resources :users, only: [:show, :new]
 
+  resources :collections, only: :new
 
   root to: 'home#index'
 
