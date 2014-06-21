@@ -4,6 +4,4 @@ class Collection < ActiveRecord::Base
   has_many :books
 
   validates :user_id, presence: true
-
-
 end

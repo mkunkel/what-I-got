@@ -20,6 +20,7 @@
             %li= link_to 'Sign in', new_user_session_path
         - if user_signed_in?
           %li.action_my_collections= link_to("View collection", {:controller => 'Collections', :action => 'index', :user => current_user.username} ) #, :class => 'action my_collections')
+          %li.action_my_collections= link_to("New collection", {:controller => 'Collections', :action => 'new', :user => current_user.username} ) #, :class => 'action my_collections')
           -# %li= link_to "Edit collection" #, edit_collection_path
     .alert= alert
     .notice= notice
