@@ -4,17 +4,18 @@ class CollectionsController < ApplicationController
   def index
      @collections = Collection.all
   end
- def new
+
+  def new
     @collection = Collection.new
   end
 
-  #
   # def show
-  #   @book = Book.find(params[:id])
+  #   @collections = Collection.find(params[:id])
   # end
 
   def create
-    @collection = Collection.new(collection_params)
+
+    @collection = current_user.collections.new(collection_params)
     if @collection.save
       redirect_to(:action => "index")
     else
