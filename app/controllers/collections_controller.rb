@@ -23,6 +23,20 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def delete
+    @collection = Collection.find_by_id(params[:id])
+  end
+
+  def destroy
+    collection = Collection.find_by_id(params[:id]).destroy
+    flash[:notice] = "#{collection.title} was deleted successfully."
+    redirect_to(:action => "index")
+  end
+
+  def edit
+    @collection = Collection.find_by_id(params[:id])
+  end
+
   private
 
   def collection_params
