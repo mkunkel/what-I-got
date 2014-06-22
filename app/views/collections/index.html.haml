@@ -1,4 +1,5 @@
 %h2.collections Collections:
 - @collections.each do |col|
   %p.col= '•' + col.title
+  .edit= link_to("Edit",  {:action => 'edit', :id => col.id})
   .delete= link_to("Delete",  {:action => 'delete', :id => col.id})

@@ -37,6 +37,16 @@ class CollectionsController < ApplicationController
     @collection = Collection.find_by_id(params[:id])
   end
 
+  def update
+    @collection = Collection.find_by_id(params[:id])
+    if @collection.update_attributes(collection_params)
+      flash[:notice] = "Collection updated successfully"
+      redirect_to(:action => "index")
+    else
+      render("edit")
+    end
+  end
+
   private
 
   def collection_params

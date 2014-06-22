@@ -1,0 +1,8 @@
+#edit_container
+  .back_button= link_to("Return to collections", {:action => "index"})
+  %h2 Edit collection
+  = simple_form_for(@collection) do |f|
+    %h2 Title
+    = f.text_field(:title, as: :string, autofocus: "true", maxlength: 50)
+    #edit_button
+      = submit_tag("Update collection")
