@@ -3,5 +3,6 @@
   = simple_form_for(@collection) do |f|
     %h3#collection_title Collection Name
     = f.text_field(:title, as: :string, autofocus: "true", maxlength: 100)
+    #user= f.hidden_field(:created_by, :value => current_user.username)
     #create_button
       = submit_tag("Create collection")

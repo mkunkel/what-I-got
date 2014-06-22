@@ -1,0 +1,4 @@
+#show_container
+  .back_button= link_to("Return to collections", {:action => "index"})
+  %h2 Collections for #{@collection.created_by}
+  %h3#collection_title= @collection.title

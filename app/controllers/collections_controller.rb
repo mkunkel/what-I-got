@@ -9,10 +9,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.new
   end
 
-  # def show
-  #   @collections = Collection.find(params[:id])
-  # end
-
   def create
 
     @collection = current_user.collections.new(collection_params)
@@ -47,9 +43,13 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def show
+    @collection = Collection.find_by_id(params[:id])
+  end
+
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :user)
+    params.require(:collection).permit(:title, :user, :created_by)
   end
 end
