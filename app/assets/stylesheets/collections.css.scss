@@ -1,0 +1,28 @@
+.collections {
+  margin: 200px auto;
+  background: rgba(0, 0, 0, 0.1);
+  width: 50%;
+  padding: 2em;
+  border-radius: 3em;
+  color: white;
+  a {
+    color: gray;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+}
+#collection_for {
+  width: 23%;
+  h1 {
+    text-align: center;
+  }
+}
+.collection_box {
+  margin: .5em;
+  width: 200px;
+  padding: 1em;
+  background-color: whitesmoke;
+  color: #2991F0;
+  text-align: center;
+  border-radius: 2em;
+}

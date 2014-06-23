@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  it { is_expected.to have_one :collection }
+  it { is_expected.to have_many :collections }
   it { is_expected.to validate_uniqueness_of :username }
   it { is_expected.to validate_uniqueness_of :email }  #not sure this testing is passing properly
 

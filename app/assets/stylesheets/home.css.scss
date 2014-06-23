@@ -78,7 +78,7 @@ body{
   float: right;
   color: white;
   position: relative;
-  top: 5em;
+  top: -7em;
   right: 2em;
 }
 .alert {
@@ -88,15 +88,3 @@ body{
   top: 0em;
   right: 2em;
 }
-#sign_up {
-  float: right;
-  position: relative;
-  top: 6em;
-  right: 2em;
-  a {
-    text-decoration: none;
-    color: white;
-  }
-}
-
-// don't forget the flash notice

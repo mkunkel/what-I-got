@@ -2,7 +2,6 @@
   %h2 Sign in
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs
-      -# = f.input :login, placeholder: "Email/Username", label: "Email/Username", required: false, autofocus: true
       = f.input :email || :username, placeholder: "Email/Username", label: "Email/Username", required: false, autofocus: true
       = f.input :password, placeholder: "Password", required: false
       = f.input :remember_me, as: :boolean if devise_mapping.rememberable?

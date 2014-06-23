@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: :show
+  resources :users  #, only: [:show, :new]
 
+  resources :collections  #, only: :new
+  match ':controller(/:action(/:id))', :via => [:get, :post, :put, :delete]
 
   root to: 'home#index'
 

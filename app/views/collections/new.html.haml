@@ -1,0 +1,8 @@
+#new_collection_wrap.collections
+  %h2 New collection
+  = simple_form_for(@collection) do |f|
+    %h3#collection_title Collection Name
+    = f.text_field(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
+    #user= f.hidden_field(:created_by, :value => current_user.username)
+    #create_button
+      = submit_tag("Create collection")
