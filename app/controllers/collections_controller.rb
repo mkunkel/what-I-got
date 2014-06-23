@@ -2,7 +2,11 @@ class CollectionsController < ApplicationController
   # before_filter :load_books
 
   def index
-     @collections = Collection.all
+    @collections = Collection.all
+    if Collection.where(:created_by => current_user.username).first == nil
+      @no_collection = "There are currently no collections for this user. Please create one."
+    end
+    @user = current_user.username
   end
 
   def new
@@ -26,7 +30,7 @@ class CollectionsController < ApplicationController
   def destroy
     collection = Collection.find_by_id(params[:id]).destroy
     flash[:notice] = "#{collection.title} was deleted successfully."
-    redirect_to(:action => "index")
+    redirect_to(action: "index")
   end
 
   def edit
@@ -37,7 +41,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.find_by_id(params[:id])
     if @collection.update_attributes(collection_params)
       flash[:notice] = "Collection updated successfully"
-      redirect_to(:action => "index")
+      redirect_to(action: "index")
     else
       render("edit")
     end
