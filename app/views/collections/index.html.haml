@@ -1,6 +1,11 @@
-%h2.collections Collections:
-- @collections.each do |col|
-  %p.col= '•' + col.title
-  .show= link_to("Show",  {:action => 'show', :id => col.id})
-  .edit= link_to("Edit",  {:action => 'edit', :id => col.id})
-  .delete= link_to("Delete",  {:action => 'delete', :id => col.id})
+.collections
+  %h2 Collections
+  - @collections.each do |col|
+    %h3.col= '• ' + col.title
+    %span
+      .show= link_to("Show",  {:action => 'show', :id => col.id})
+      .edit= link_to("Edit",  {:action => 'edit', :id => col.id})
+      .delete= link_to("Delete",  {:action => 'delete', :id => col.id})
+    -# .delete= link_to("Delete",  {:action => 'delete', :id => col.id})
+    -# .edit= link_to("Edit",  {:action => 'edit', :id => col.id})
+    -# .show= link_to("Show",  {:action => 'show', :id => col.id})

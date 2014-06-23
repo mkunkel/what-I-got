@@ -1,28 +1,14 @@
 .collections {
-  margin: 200px 0;
-  border: 1px solid red;
-}
-#new_collection_wrap {
-  margin: 10% auto;
+  margin: 200px auto;
   background: rgba(0, 0, 0, 0.1);
   width: 50%;
   padding: 2em;
   border-radius: 3em;
   color: white;
-}
-#delete_container {
-  margin: 200px 0;
-  background: rgba(0, 0, 0, 0.1);
-  width: 50%;
-  padding: 2em;
-  border-radius: 3em;
-  color: white;
-}
-#show_container {
-  margin: 200px 0;
-  background: rgba(0, 0, 0, 0.1);
-  width: 50%;
-  padding: 2em;
-  border-radius: 3em;
-  color: white;
+  a {
+    color: gray;
+    text-decoration: none;
+    // float: right;
+    margin: 0 10px;
+  }
 }
