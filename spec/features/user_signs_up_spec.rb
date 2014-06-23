@@ -5,14 +5,14 @@ feature "User signs up" do
   subject { page }
   scenario "happy path" do
     visit '/'
-    click_link "Sign me up!"
+    click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "joe"
     fill_in "Password", with: "mypassword"
     fill_in "Password confirmation", with: "mypassword"
     click_button "Sign up"
     is_expected.to have_content "Welcome to What I Got!"
-    is_expected.not_to have_link("Sign me up!")
+    is_expected.not_to have_link("Sign up")
 
     click_link "Sign out"
     click_link "Sign in"
@@ -30,7 +30,7 @@ feature "User signs up" do
     fill_in "Password", with: "password"
     click_button "Sign in"
     is_expected.to have_content("You are now signed in.")
-    is_expected.not_to have_link("Sign me up!")
+    is_expected.not_to have_link("Sign up")
   end
 
   scenario "failed login" do
@@ -46,7 +46,7 @@ feature "User signs up" do
   scenario "failed signup" do
     Fabricate(:user, email: "joe@example.com", username: "joe")
     visit '/'
-    click_link "Sign me up!"
+    click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "joe"
     fill_in "Password", with: "mypassword"
@@ -62,7 +62,7 @@ feature "User signs up" do
 
   scenario "failed signup becuase invalid characters in username" do
     visit "/"
-    click_link "Sign me up!"
+    click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "Vampire&Tickler"
     fill_in "Password", with: "password"
@@ -75,7 +75,7 @@ feature "User signs up" do
 
   scenario "failed signup because invalid characters in username" do
     visit '/'
-    click_link "Sign me up!"
+    click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "Drum Slayer 500"
     fill_in "Password", with: "password"

@@ -3,7 +3,7 @@ class CollectionsController < ApplicationController
 
   def index
     @collections = Collection.all
-    if Collection.where(:created_by => current_user.username).first == nil
+    if Collection.where(created_by: current_user.username).first == nil
       @no_collection = "There are currently no collections for this user. Please create one."
     end
     @user = current_user.username
@@ -14,10 +14,9 @@ class CollectionsController < ApplicationController
   end
 
   def create
-
     @collection = current_user.collections.new(collection_params)
     if @collection.save
-      redirect_to(:action => "index")
+      redirect_to(action: "index")
     else
       render 'new'
     end
@@ -48,7 +47,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.find_by_id(params[:id])
+    @collection = Collection.find_by_id(params[:id]) #.where(created_by: current_user.username)
   end
 
   private

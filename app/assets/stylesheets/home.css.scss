@@ -20,7 +20,7 @@ body{
   height: 60px;
   padding: .3em 0;
   font-size: 1em;
- h1, #title_tag {
+  h1, #title_tag {
     color: white;
     display: inline;
     padding: 1em 0em;
@@ -55,6 +55,10 @@ body{
       color: white;
       text-decoration: none;
     }
+  }
+  #user {
+    position: relative;
+    top: -17px
   }
 }
 

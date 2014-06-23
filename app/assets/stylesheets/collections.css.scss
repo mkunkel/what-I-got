@@ -13,12 +13,12 @@
 }
 #collection_for {
   width: 23%;
-  h1 {
+  h1, h3 {
     text-align: center;
   }
 }
 .collection_box {
-  margin: .5em;
+  margin: 2em auto;
   width: 200px;
   padding: 1em;
   background-color: whitesmoke;
