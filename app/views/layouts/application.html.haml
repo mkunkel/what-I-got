@@ -14,17 +14,17 @@
         %h4#tagline your home media manager
         .devise_navigation
           -unless user_signed_in?
-            -# #sign_up=link_to "Sign up", new_user_registration_path
             %li= link_to "Sign up", new_user_registration_path
           -if user_signed_in?
-            -# #sign_out= link_to 'Sign out', destroy_user_session_path, method: 'delete'
             %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
           -else
-            -# #sign_in= link_to 'Sign in', new_user_session_path
             %li= link_to 'Sign in', new_user_session_path
         - if user_signed_in?
           %li.action_my_collections= link_to("View collections", {controller: "Collections", action: "index", user: current_user.username} )
           %li.action_my_collections= link_to("New collection", {controller: "Collections", action: "new", user: current_user.username} )
+          %li
+            -# %h2#user Logged in as: #{@user}
+            %h2#user Logged in as: #{@username}
     .alert= alert
     .notice= notice
     = yield

@@ -1,23 +1,22 @@
 class CollectionsController < ApplicationController
-  # before_filter :load_books
 
   def index
-    @collections = Collection.all
-    if Collection.where(:created_by => current_user.username).first == nil
+    @collections = current_user.collections
+    if current_user.collections.empty?
       @no_collection = "There are currently no collections for this user. Please create one."
     end
     @user = current_user.username
   end
 
   def new
+    @user = current_user.username
     @collection = Collection.new
   end
 
   def create
-
     @collection = current_user.collections.new(collection_params)
     if @collection.save
-      redirect_to(:action => "index")
+      redirect_to(action: "index")
     else
       render 'new'
     end
@@ -54,6 +53,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :user, :created_by)
+    params.require(:collection).permit(:title, :user, :created_by, :book)
   end
 end
