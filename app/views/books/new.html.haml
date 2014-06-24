@@ -1,0 +1,15 @@
+#new_book_wrap.books
+  %h2= @collection.id
+  %h2 New book
+  = form_for(:book, html: {:multipart => true}, :url => {:action => "create"} ) do |f| #removed simple_
+    %h3#book_title Title
+    = f.text_field(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
+    %h3#book_author Author
+    = f.text_field(:author, as: :string, placeholder: "author", maxlength: 50)
+    %h3#book_title Title
+    = f.text_field(:genre, as: :string, placeholder: "genre", maxlength: 50)
+    %h3#book_title Title
+    = f.text_field(:title, as: :string, placeholder: "title", maxlength: 100)
+    #user= f.hidden_field(:created_by, :value => current_user.username)
+    #create_button
+      = submit_tag("Create book")

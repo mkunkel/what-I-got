@@ -7,10 +7,10 @@ feature "User visits profile page" do
   scenario "views own profile" do
     login_as kate
     visit user_path(kate)
-    is_expected.to have_content("I'm a user's profile!!")
-    is_expected.to have_content("What would you like to do?")
-    is_expected.to have_content("Create a collection")
+    is_expected.to have_content("Logged in as:")
+    is_expected.to have_content("New collection")
     is_expected.to have_content("View collections")
+    is_expected.to have_content("Sign out")
   end
 
 end

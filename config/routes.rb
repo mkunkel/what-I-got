@@ -6,8 +6,11 @@ Rails.application.routes.draw do
 
   resources :users  #, only: [:show, :new]
   resources :collections
-  resources :books
-  
+
+  resources :collections do
+    resources :books
+  end
+
   match ':controller(/:action(/:id))', :via => [:get, :post, :put, :delete]
 
   root to: 'home#index'
