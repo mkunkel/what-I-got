@@ -1,4 +1,8 @@
 #show_container.collections
   .back_button= link_to("Return to collections", {action: "index"})
-  %h2 Collections for #{@collection.created_by}
-  %h3#collection_title= @collection.title
+  %h2#collection_title #{@collection.created_by}'s #{@collection.title} collection
+  .item_box
+    #book_button= link_to("Books",  {controller: "books", action: 'index'}) #, :id => book.id})
+    #movie_button= link_to("Movies") #,  {controller: 'movies', action: 'index'})
+    #music_button= link_to("Music")  #,  {controller: 'music', action: 'index'})
+    #electronic_button= link_to("Electronics")  #,  {controller: 'electronics', action: 'index'})
