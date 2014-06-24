@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'users/profile'
+  # get 'users/show'
 
   devise_for :users
-  root to: 'home#index'
 
-  resources :users, only: :show
+  resources :users  #, only: [:show, :new]
+
+  resources :collections  #, only: :new
+  match ':controller(/:action(/:id))', :via => [:get, :post, :put, :delete]
+
+  root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

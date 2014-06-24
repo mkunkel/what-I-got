@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  def show #profile
+  def index
     @user = User.find_by_username(params[:id])
-    render :show
+    render :index
   end
+
+  def show
+    render :index
+  end
+
 end

@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
+
+  has_many :collections
+  # belongs_to :collection
+
   validates :username, uniqueness: true, format: { with: /\A[a-zA-z0-9]+\z/, message: "username can only contain letters and numbers" }
   validates_presence_of :email
 

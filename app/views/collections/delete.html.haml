@@ -1,0 +1,5 @@
+#delete_container.collections
+  .back_button= link_to("Return to collections", {:action => "index"})
+  %h2 Delete collection
+  %p Are you certain you want to delete #{@collection.title}?
+  = button_to("Delete collection", {:controller => "Collections", :action => "destroy", :id => @collection.id})

@@ -5,9 +5,9 @@
   %h2 Sign up
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     -# = devise_error_messages!
-    = f.input :email, placeholder: "Email", autofocus: true
-    = f.input :username, placeholder: "Username"
-    = f.input :password, placeholder: "password", autocomplete: "off"
-    = f.input :password_confirmation, placeholder: "retype password", autocomplete: "off"
+    = f.input :email, placeholder: "Email", autofocus: true, required: true
+    = f.input :username, placeholder: "Username", required: true
+    = f.input :password, placeholder: "password", autocomplete: "off", required: true
+    = f.input :password_confirmation, placeholder: "retype password", autocomplete: "off", required: true
     = f.button :submit, "Sign up"
   = render "devise/shared/links"

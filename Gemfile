@@ -25,13 +25,14 @@ group :production do
 end
 
 group :development do
+  gem 'rails-erd'
   gem 'spring'
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails'
   gem 'rspec'
-  gem 'pry'
 end
 
 group :test do

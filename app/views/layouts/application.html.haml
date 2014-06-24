@@ -12,15 +12,19 @@
         %h4#welcome_tag Welcome to
         %h1#title_tag What I Got
         %h4#tagline your home media manager
-        -# %li= link_to 'Users' #, user    these links are likely incorrect but are placeholders
         .devise_navigation
+          -unless user_signed_in?
+            -# #sign_up=link_to "Sign up", new_user_registration_path
+            %li= link_to "Sign up", new_user_registration_path
           -if user_signed_in?
+            -# #sign_out= link_to 'Sign out', destroy_user_session_path, method: 'delete'
             %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
           -else
+            -# #sign_in= link_to 'Sign in', new_user_session_path
             %li= link_to 'Sign in', new_user_session_path
         - if user_signed_in?
-          %li= link_to "View collection" #("View my collection" , {:controller => 'Collections', :action => 'my_collections', :user => current_user.username}, :class => 'action my_collections')
-          %li= link_to "Edit collection" #, edit_collection_path
+          %li.action_my_collections= link_to("View collections", {controller: "Collections", action: "index", user: current_user.username} )
+          %li.action_my_collections= link_to("New collection", {controller: "Collections", action: "new", user: current_user.username} )
     .alert= alert
     .notice= notice
     = yield
