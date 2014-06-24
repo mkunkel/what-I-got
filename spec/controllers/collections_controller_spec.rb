@@ -3,7 +3,8 @@ require 'spec_helper'
 describe CollectionsController, :type => :controller do
 
   before(:each) do
-    @collection = create(:collection)
+    # @collection = create(:collection)
+    @collection = Fabricate(:collection)
   end
 
   describe "GET 'index'" do

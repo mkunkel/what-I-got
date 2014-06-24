@@ -23,7 +23,8 @@
           %li.action_my_collections= link_to("View collections", {controller: "Collections", action: "index", user: current_user.username} )
           %li.action_my_collections= link_to("New collection", {controller: "Collections", action: "new", user: current_user.username} )
           %li
-            %h2#user Logged in as: #{@user}
+            -# %h2#user Logged in as: #{@user}
+            %h2#user Logged in as: #{@username}
     .alert= alert
     .notice= notice
     = yield
