@@ -2,11 +2,10 @@ class CollectionsController < ApplicationController
   # before_filter :load_books
 
   def index
-    @collections = Collection.all
-    if Collection.where(created_by: current_user.username).first == nil
+    @collections = current_user.collections
+    if current_user.collections.empty?
       @no_collection = "There are currently no collections for this user. Please create one."
     end
-    @user = current_user.username
   end
 
   def new
