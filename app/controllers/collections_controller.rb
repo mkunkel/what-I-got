@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  before_filter :find_collection
 
   def index
     @collections = current_user.collections
@@ -16,7 +17,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.new(collection_params)
     if @collection.save
-      redirect_to collections_path #(action: "index")
+      redirect_to collections_path
     else
       render :new
     end
@@ -47,7 +48,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.find_by_id(params[:id])
+    @collection = Collection.find_by_id(params[:collection_id])
   end
 
   private

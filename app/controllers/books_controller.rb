@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @collection = Collection.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
     @book = @collection.books.new(book_params)
     if @book.save
       redirect_to(action: "index")
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
  private
 
   def find_collection
-    @collection ||= Collection.find(params[:id])
+    @collection ||= Collection.find(params[:collection_id])
   end
 
   def book_params
