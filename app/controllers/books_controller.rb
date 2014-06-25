@@ -1,13 +1,14 @@
 class BooksController < ApplicationController
+  before_filter :find_collection
 
   def index
     @books = Book.all
-    @collection = Collection.find(params[:id])
+    # @collection = Collection.find(params[:id])
   end
 
   def create
-    collection = Collection.find(params[:id])
-    @book = collection.books.new(book_params) # add @ if it doesn't
+    @collection = Collection.find(params[:id])
+    @book = @collection.books.new(book_params)
     if @book.save
       redirect_to(action: "index")
     else
@@ -16,11 +17,15 @@ class BooksController < ApplicationController
   end
 
   def new
-    @collection = Collection.find(params[:id])
-    @book = Book.new
+    # @collection = Collection.find(params[:id])
+    @book = Books.new
   end
 
  private
+
+  def find_collection
+    @collection ||= Collection.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:title, :author, :genre, :rating, :collection_id)

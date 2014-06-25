@@ -6,10 +6,10 @@
     = f.text_field(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
     %h3#book_author Author
     = f.text_field(:author, as: :string, placeholder: "author", maxlength: 50)
-    %h3#book_title Title
+    %h3#book_genre Genre
     = f.text_field(:genre, as: :string, placeholder: "genre", maxlength: 50)
-    %h3#book_title Title
-    = f.text_field(:title, as: :string, placeholder: "title", maxlength: 100)
+    %h3#book_rating Rating
+    = f.text_field(:rating, as: :string, placeholder: "title", maxlength: 100)
     #user= f.hidden_field(:created_by, :value => current_user.username)
     #create_button
       = submit_tag("Create book")

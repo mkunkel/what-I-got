@@ -4,9 +4,9 @@
   %h3 #{@no_books}
   %h2= @collection.title
   %h2= @collection.id
-  
+
   .books_box
-    %button.add_button= link_to("Add book", {controller: "Books", action: "new", id: @collection.id})
+    %button.add_button= link_to("Add book", new_collection_book_path(collection_id: @collection.id) #{controller: "Books", action: "new", id: @collection.id})
   -# - @book.each do |col|
   -#   .book_box
   -#     %h2.book_list= '• ' + book.title + ' •'
