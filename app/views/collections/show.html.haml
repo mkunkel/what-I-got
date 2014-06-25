@@ -2,3 +2,8 @@
   .back_button= link_to("Return to collections", {action: "index"})
   %h2 Collections for #{@collection.created_by}
   %h3#collection_title= @collection.title
+  .item_box
+    #book_button= link_to("Books", new_collection_book_path(collection_id: @collection.id))
+    #movie_button= link_to("Movies") #,  {controller: 'movies', action: 'index'})
+    #music_button= link_to("Music")  #,  {controller: 'music', action: 'index'})
+    #electronic_button= link_to("Electronics")  #,  {controller: 'electronics', action: 'index'})
