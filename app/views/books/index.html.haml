@@ -13,5 +13,5 @@
         %h3.book_list= 'rating: '+book.rating.to_s
         .show= link_to("Show",  {action: "show", id: book.id})
         -#   .edit= link_to("Edit",  {action: "edit", id: "book.id"})
-        -#   .delete= link_to("Delete",  {action: "delete", id: "book.id"})
+        -#   .delete= link_to("Delete",  {action: "delete", id: book.id})
     %button#add_book.add_button= link_to("Add book", new_collection_book_path(collection_id: @collection.id))
