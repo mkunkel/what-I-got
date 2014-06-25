@@ -8,7 +8,7 @@ feature "User signs up" do
     click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "joe"
-    fill_in "Password", with: "mypassword"
+    fill_in "Password", with: "mypassword", :match => :first
     fill_in "Password confirmation", with: "mypassword"
     click_button "Sign up"
     is_expected.to have_content "Welcome to What I Got!"
@@ -38,7 +38,7 @@ feature "User signs up" do
     visit "/"
     click_link "Sign in"
     fill_in "Email/Username", with: "jocephus"
-    fill_in "Password", with: "password"
+    fill_in "Password", with: "mypassword"
     click_button "Sign in"
     is_expected.to have_content("Invalid login or password.")
   end
@@ -49,7 +49,7 @@ feature "User signs up" do
     click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "joe"
-    fill_in "Password", with: "mypassword"
+    fill_in "Password", with: "mypassword", :match => :first
     fill_in "Password confirmation", with: "notthesame"
     click_button "Sign up"
     is_expected.not_to have_content "Welcome to What I Got!"
@@ -65,8 +65,8 @@ feature "User signs up" do
     click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "Vampire&Tickler"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "Password", with: "mypassword", :match => :first
+    fill_in "Password confirmation", with: "mypassword"
     click_button "Sign up"
     is_expected.not_to have_content "Welcome to What I Got!"
     is_expected.to have_content "Your account could not be created."
@@ -78,8 +78,8 @@ feature "User signs up" do
     click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "Drum Slayer 500"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "Password", with: "mypassword", :match => :first
+    fill_in "Password confirmation", with: "mypassword"
     click_button "Sign up"
     is_expected.not_to have_content "Welcome to What I Got!"
     is_expected.to have_content "Your account could not be created."

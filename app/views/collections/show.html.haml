@@ -1,8 +1,10 @@
 #show_container.collections
   .back_button= link_to("Return to collections", {action: "index"})
-  %h2#collection_title #{@collection.created_by}'s #{@collection.title} collection
+  %h2 #{@collection.created_by.capitalize}'s #{@collection.title.downcase} collection
+  -# %h3#collection_title= @collection.title
   .item_box
-    #book_button= link_to("Books",  {controller: "books", action: 'index'}) #, :id => book.id})
-    #movie_button= link_to("Movies") #,  {controller: 'movies', action: 'index'})
-    #music_button= link_to("Music")  #,  {controller: 'music', action: 'index'})
-    #electronic_button= link_to("Electronics")  #,  {controller: 'electronics', action: 'index'})
+    -# #book_button= link_to("Books", new_collection_book_path(collection_id: @collection.id))
+    #book_button= link_to("Books", collection_books_path(collection_id: @collection.id))
+    #movie_button= link_to("Movies") #, new_collection_movie_path(collection_id: @collection.id))
+    #music_button= link_to("Music") #, new_collection_music_path(collection_id: @collection.id))
+    #electronic_button= link_to("Electronics")  #, new_collection_electronic_path(collection_id: @collection.id))

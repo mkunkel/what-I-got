@@ -26,3 +26,10 @@
   text-align: center;
   border-radius: 2em;
 }
+
+/* make all title inputs boxes no more than 270px wide, at least on screens shorter
+than 640px */
+
+.book_input {
+  width: 270px;
+}

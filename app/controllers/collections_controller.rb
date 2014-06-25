@@ -16,9 +16,9 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.new(collection_params)
     if @collection.save
-      redirect_to(action: "index")
+      redirect_to collections_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -42,7 +42,7 @@ class CollectionsController < ApplicationController
       flash[:notice] = "Collection updated successfully"
       redirect_to(action: "index")
     else
-      render("edit")
+      render :edit
     end
   end
 
