@@ -2,18 +2,15 @@
   .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
   %h1 Books in #{current_user.username}'s collection:
   %h3 #{@no_books}
-  %h2= @collection.title
-  %h2= @collection.id
-
   .books_box
-    %button.add_button= link_to("Add book", new_collection_book_path(collection_id: @collection.id))
-  -# - @book.each do |col|
-  -#   .book_box
-  -#     %h2.book_list= '• ' + book.title + ' •'
-  -#     %span
-  -#       -# .show= link_to("Show",  {action: "show", id: "book.id"})
-  -#       .show= link_to("Show",  {:action => 'show', :id => book.id})
-  -#       -# .edit= link_to("Edit",  {action: "edit", id: "book.id"})
-  -#       .edit= link_to("Edit",  {:action => 'edit', :id => book.id})
-  -#       -# .delete= link_to("Delete",  {action: "delete", id: "book.id"})
-  -#       .delete= link_to("Delete",  {:action => 'delete', :id => book.id})
+    %button.add_button= link_to("Add book", {controller: "Books", action: "new", collection_id: @collection.id }) #collection_books_path(collection_id: @collection.id))
+  - @books.each do |book|
+    .book_box
+      %h2.book_list= '• ' + book.title + ' •'
+      %span
+        -# .show= link_to("Show",  {action: "show", id: "book.id"})
+        .show= link_to("Show",  {:action => 'show', :id => book.id})
+        -# .edit= link_to("Edit",  {action: "edit", id: "book.id"})
+        .edit= link_to("Edit",  {:action => 'edit', :id => book.id})
+        -# .delete= link_to("Delete",  {action: "delete", id: "book.id"})
+        .delete= link_to("Delete",  {:action => 'delete', :id => book.id})

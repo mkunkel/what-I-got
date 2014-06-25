@@ -1,5 +1,4 @@
 class CollectionsController < ApplicationController
-  before_filter :find_collection
 
   def index
     @collections = current_user.collections
@@ -48,7 +47,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.find_by_id(params[:collection_id])
+    @collection = Collection.find_by_id(params[:id])
   end
 
   private

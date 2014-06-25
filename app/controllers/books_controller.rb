@@ -3,21 +3,21 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    # @collection = Collection.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
   end
 
   def create
-    @collection = Collection.find(params[:collection_id])
+    # @collection = Collection.find(params[:collection_id])
     @book = @collection.books.new(book_params)
     if @book.save
-      redirect_to(action: "index")
+      redirect_to(action: 'index')
     else
       render 'new'
     end
   end
 
   def new
-    # @collection = Collection.find(params[:id])
+    # @collection = Collection.find(params[:collection_id])
     @book = Books.new
   end
 
