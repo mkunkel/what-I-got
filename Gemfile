@@ -30,8 +30,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails'

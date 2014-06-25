@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   def create
     @book = @collection.books.new(book_params)
     if @book.save
-      redirect_to(action: "index")
+      redirect_to(action: 'index')
     else
       render 'new'
     end
@@ -16,6 +16,10 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+  end
+
+  def show
+    @book = Book.find_by_id(params[:id])
   end
 
   private

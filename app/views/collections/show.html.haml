@@ -1,22 +1,10 @@
 #show_container.collections
   .back_button= link_to("Return to collections", {action: "index"})
-  %h2 Collections for #{@collection.created_by}
-  %h3#collection_title= @collection.title
+  %h2 #{@collection.created_by.capitalize}'s #{@collection.title.downcase} collection
+  -# %h3#collection_title= @collection.title
   .item_box
-    #book_button= link_to("Books", new_collection_book_path(collection_id: @collection.id))
-    #movie_button= link_to("Movies") #,  {controller: 'movies', action: 'index'})
-    #music_button= link_to("Music")  #,  {controller: 'music', action: 'index'})
-    #electronic_button= link_to("Electronics")  #,  {controller: 'electronics', action: 'index'})
-    
--# = simple_form_for(Book.new, url: collection_books_path(@collection)) do |f|
--#   %h3#book_title Title
--#   = f.input(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
--#   %h3#book_author Author
--#   = f.input(:author, as: :string, placeholder: "author", maxlength: 50)
--#   %h3#book_genre Genre
--#   = f.input(:genre, as: :string, placeholder: "genre", maxlength: 50)
--#   %h3#book_rating Rating
--#   = f.input(:rating, as: :string, placeholder: "rating", maxlength: 10)
--#   -# #user= f.hidden_field(:created_by, :value => current_user.username)
--#   #create_button
--#     = submit_tag("Create book")
+    -# #book_button= link_to("Books", new_collection_book_path(collection_id: @collection.id))
+    #book_button= link_to("Books", collection_books_path(collection_id: @collection.id))
+    #movie_button= link_to("Movies") #, new_collection_movie_path(collection_id: @collection.id))
+    #music_button= link_to("Music") #, new_collection_music_path(collection_id: @collection.id))
+    #electronic_button= link_to("Electronics")  #, new_collection_electronic_path(collection_id: @collection.id))

@@ -1,7 +1,7 @@
 #new_book_wrap.books
-  %h2= @collection.id
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
   %h2 New book
-  = form_for(:book, html: {:multipart => true}, :url => {:action => "create"} ) do |f| #removed simple_
+  = form_for(:book, html: {:multipart => true}, :url => {:action => "create"} ) do |f|
     %h3#book_title Title
     = f.text_field(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
     %h3#book_author Author
@@ -9,7 +9,7 @@
     %h3#book_genre Genre
     = f.text_field(:genre, as: :string, placeholder: "genre", maxlength: 50)
     %h3#book_rating Rating
-    = f.text_field(:rating, as: :string, placeholder: "title", maxlength: 100)
+    = f.text_field(:rating, as: :string, placeholder: "pick a number between 1 and 5", maxlength: 50)
     #user= f.hidden_field(:created_by, :value => current_user.username)
     #create_button
       = submit_tag("Create book")
