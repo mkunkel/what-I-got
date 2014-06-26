@@ -3,7 +3,6 @@
   %h1 Movies in #{current_user.username.capitalize}'s collection:
   %h3 #{@no_books}
   .movies_box
-
     - @movies.each do |movie|
       .movie_box
         %h3.movie_list= '"'+movie.title+'"'

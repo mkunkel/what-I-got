@@ -3,10 +3,8 @@
   %h1 Albums in #{current_user.username}'s collection:
   %h3 #{@no_albums}
   .albums_box
-
     - @albums.each do |album|
       .album_box
-        -# %h3.album_list= '"'+album.title+'"'+'  by: '+album.author.to_s+'  genre: '+album.genre.to_s+"  rating: "+album.rating.to_s
         %h3.album_list= '"'+album.title+'"'
         %h3.album_list= 'by: '+album.artist.to_s
         %h3.album_list= 'genre: '+album.genre.to_s
