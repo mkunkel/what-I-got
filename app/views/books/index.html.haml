@@ -1,17 +1,15 @@
 #books_for.books
-  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"}) #collection_path(collection_id: @collection.id))
   %h1 Books in #{current_user.username.capitalize}'s collection:
   %h3 #{@no_books}
   .books_box
-
     - @books.each do |book|
       .book_box
-        -# %h3.book_list= '"'+book.title+'"'+'  by: '+book.author.to_s+'  genre: '+book.genre.to_s+"  rating: "+book.rating.to_s
         %h3.book_list= '"'+book.title+'"'
         %h3.book_list= 'by: '+book.author.to_s
         %h3.book_list= 'genre: '+book.genre.to_s
         %h3.book_list= 'rating: '+book.rating.to_s
         .show= link_to("Show",  {action: "show", id: book.id})
         -#   .edit= link_to("Edit",  {action: "edit", id: "book.id"})
-        -#   .delete= link_to("Delete",  {action: "delete", id: book.id})
+        .delete= link_to("Delete", {:action => 'delete', :id => book.id}) #collection_book_path(id: book.id))
     %button#add_book.add_button= link_to("Add book", new_collection_book_path(collection_id: @collection.id))
