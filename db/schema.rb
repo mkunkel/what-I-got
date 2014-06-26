@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625230153) do
+ActiveRecord::Schema.define(version: 20140626020336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: true do |t|
+    t.string   "title",         default: "", null: false
+    t.string   "string",        default: ""
+    t.string   "artist",        default: ""
+    t.string   "genre",         default: ""
+    t.string   "rating",        default: ""
+    t.integer  "collection_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "books", force: true do |t|
     t.string   "title",         default: "", null: false
