@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20140626051004) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "movies", force: true do |t|
     t.string   "title",         default: "", null: false
     t.string   "string",        default: ""
@@ -73,8 +72,6 @@ ActiveRecord::Schema.define(version: 20140626051004) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> music
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
