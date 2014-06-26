@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :collections
 
   resources :collections do
-    resources :books, :movies, :electronics
+    resources :books, :movies, :electronics, :albums
   end
 
   match ':controller(/:action(/:id))', :via => [:get, :post, :put, :delete]

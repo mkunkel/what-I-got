@@ -1,0 +1,8 @@
+#show_album.albums
+  .back_button= link_to("Return to albums", {action: "index"})
+  %h2 #{@album.title}
+  %h2 #{@album.artist}
+  %h2 #{@album.genre}
+  %h2 #{@album.rating}
+  -# .item_box
+  -#   #album_button= link_to("Books", new_collection_album_path(collection_id: @collection.id))
