@@ -1,0 +1,11 @@
+#new_electronic_wrap.electronics
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  %h2 New electronic
+  = form_for(:electronic, html: {:multipart => true}, :url => {:action => "create"} ) do |f|
+    %h3#electronic_title Name
+    = f.text_field(:name, as: :string, autofocus: "true", placeholder: "name", maxlength: 100)
+    %h3#electronic_author Serial number
+    = f.text_field(:serial, as: :string, placeholder: "serial number", maxlength: 50)
+    #user= f.hidden_field(:created_by, :value => current_user.username)
+    #create_button
+      = submit_tag("Create electronic")

@@ -1,0 +1,8 @@
+#show_electronic.electronics
+  .back_button= link_to("Return to electronics", {action: "index"})
+  %h2 #{@electronic.name}
+  %h2 #{@electronic.author}
+  %h2 #{@electronic.genre}
+  %h2 #{@electronic.rating}
+  -# .item_box
+  -#   #electronic_button= link_to("Electronics", new_collection_electronic_path(collection_id: @collection.id))
