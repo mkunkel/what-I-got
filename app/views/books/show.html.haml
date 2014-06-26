@@ -1,6 +1,8 @@
 #show_book.books
   .back_button= link_to("Return to books", {action: "index"})
-  %h2 #{@book.title}
-  %h2 #{@book.author}
-  %h2 #{@book.genre}
-  %h2 #{@book.rating}
+  %h2 "#{@book.title}"
+  %h4 Author: #{@book.author}
+  %h4 Genre: #{@book.genre}
+  %h4 Rating: #{@book.rating}
+  -# .edit= link_to("Edit",  {action: "edit", id: @book.id})
+  -# .delete= link_to("Delete",  {action: "delete", id: @book.id})

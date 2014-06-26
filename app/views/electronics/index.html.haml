@@ -5,9 +5,5 @@
   .electronics_box
     - @electronics.each do |electronic|
       .electronic_box
-        %h3.electronic_list= '"'+electronic.name+'"'
-        %h3.electronic_list= 'Serial number: '+electronic.serial.to_s
-        .show= link_to("Show",  {action: "show", id: electronic.id})
-        -#   .edit= link_to("Edit",  {action: "edit", id: "electronic.id"})
-        -#   .delete= link_to("Delete",  {action: "delete", id: electronic.id})
-    %button#add_electronic.add_button= link_to("Add electronic", new_collection_electronic_path(collection_id: @collection.id))
+        %h3.electronic_list= link_to('"'+electronic.name+'"', {action: "show", id: electronic.id})
+    %button#add_electronic.add_electronic= link_to("Add electronic", new_collection_electronic_path(collection_id: @collection.id))

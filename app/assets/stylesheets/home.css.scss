@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:700);
+@import url(http://fonts.googleapis.com/css?family=Lora);
 
 $bkground_color: #a1d0fb;
 
@@ -11,6 +13,7 @@ body{
 }
 
 .main_navigation {
+  font-family: 'Droid Serif', serif;
   margin: 0px;
   background: rgba(0, 0, 0, .1);
   width: 100%;
@@ -63,6 +66,7 @@ body{
 }
 
 .devise_view {
+  font-family: 'Droid Serif', serif;
   color: white;
   background: rgba(0, 0, 0, 0.1);
   margin: 7em auto;
@@ -79,6 +83,7 @@ body{
   }
 }
 .notice {
+  font-family: 'Droid Serif', serif;
   float: right;
   color: white;
   position: relative;
@@ -86,6 +91,7 @@ body{
   right: 2em;
 }
 .alert {
+  font-family: 'Droid Serif', serif;
   float: right;
   color: white;
   position: relative;
@@ -93,9 +99,10 @@ body{
   right: 2em;
 }
 .item_box {
+  font-family: 'Droid Serif', serif;
   margin: 50px auto;
   background: rgba(0, 0, 0, 0.1);
-  width: 50%;
+  width: 55%;
   padding: 2em;
   border-radius: 3em;
   color: white;

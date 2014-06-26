@@ -1,4 +1,6 @@
 #show_electronic.electronics
   .back_button= link_to("Return to electronics", {action: "index"})
-  %h2 #{@electronic.name}
-  %h2 #{@electronic.serial}
+  %h2 Name: #{@electronic.name}
+  %h4 Serial number: #{@electronic.serial}
+  -# .edit= link_to("Edit",  {action: "edit", id: @electronic.id})
+  -# .delete= link_to("Delete",  {action: "delete", id: @electronic.id})
