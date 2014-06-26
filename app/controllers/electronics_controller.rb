@@ -1,4 +1,4 @@
-class ElectronicController < ApplicationController
+class ElectronicsController < ApplicationController
   before_filter :find_collection
 
   def index
@@ -6,7 +6,7 @@ class ElectronicController < ApplicationController
   end
 
   def create
-    @electronic = @collection.electronic.new(electronic_params)
+    @electronic = @collection.electronics.new(electronic_params)
     if @electronic.save
       redirect_to(action: 'index')
     else
