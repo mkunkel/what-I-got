@@ -1,0 +1,17 @@
+#movies_for.movies
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  %h1 Movies in #{current_user.username.capitalize}'s collection:
+  %h3 #{@no_books}
+  .movies_box
+
+    - @movies.each do |movie|
+      .movie_box
+        -# %h3.movie_list= '"'+movie.title+'"'+'  by: '+movie.director.to_s+'  genre: '+movie.genre.to_s+"  rating: "+movie.rating.to_s
+        %h3.movie_list= '"'+movie.title+'"'
+        %h3.movie_list= 'by: '+movie.director.to_s
+        %h3.movie_list= 'genre: '+movie.genre.to_s
+        %h3.movie_list= 'rating: '+movie.rating.to_s
+        .show= link_to("Show",  {action: "show", id: movie.id})
+        -#   .edit= link_to("Edit",  {action: "edit", id: movie.id})
+        -#   .delete= link_to("Delete",  {action: "delete", id: movie.id})
+    %button#add_movie.add_button= link_to("Add movie", new_collection_movie_path(collection_id: @collection.id))

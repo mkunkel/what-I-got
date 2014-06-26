@@ -1,6 +1,6 @@
 #books_for.books
   .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
-  %h1 Books in #{current_user.username}'s collection:
+  %h1 Books in #{current_user.username.capitalize}'s collection:
   %h3 #{@no_books}
   .books_box
 
