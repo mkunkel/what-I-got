@@ -25,7 +25,7 @@ class ElectronicController < ApplicationController
   private
 
   def electronic_params
-    params.require(:electronic).permit(:name, :serial, s:collection_id, :id)
+    params.require(:electronic).permit(:name, :serial, :collection_id, :id)
   end
 
   def find_collection
