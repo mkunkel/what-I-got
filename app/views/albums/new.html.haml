@@ -1,0 +1,15 @@
+#new_album_wrap.albums
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  %h2 New album
+  = form_for(:album, html: {:multipart => true}, :url => {:action => "create"} ) do |f|
+    %h3#album_title Title
+    = f.text_field(:title, as: :string, autofocus: "true", placeholder: "title", maxlength: 100)
+    %h3#album_author Author
+    = f.text_field(:artist, as: :string, placeholder: "artist", maxlength: 50)
+    %h3#album_genre Genre
+    = f.text_field(:genre, as: :string, placeholder: "genre", maxlength: 50)
+    %h3#album_rating Rating
+    = f.text_field(:rating, as: :string, placeholder: "pick a number between 1 and 5", maxlength: 50)
+    #user= f.hidden_field(:created_by, :value => current_user.username)
+    #create_button
+      = submit_tag("Create album")

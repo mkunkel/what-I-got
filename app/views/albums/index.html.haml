@@ -1,0 +1,17 @@
+#albums_for.albums
+  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  %h1 Albums in #{current_user.username}'s collection:
+  %h3 #{@no_albums}
+  .albums_box
+
+    - @albums.each do |album|
+      .album_box
+        -# %h3.album_list= '"'+album.title+'"'+'  by: '+album.author.to_s+'  genre: '+album.genre.to_s+"  rating: "+album.rating.to_s
+        %h3.album_list= '"'+album.title+'"'
+        %h3.album_list= 'by: '+album.artist.to_s
+        %h3.album_list= 'genre: '+album.genre.to_s
+        %h3.album_list= 'rating: '+album.rating.to_s
+        .show= link_to("Show",  {action: "show", id: album.id})
+        -#   .edit= link_to("Edit",  {action: "edit", id: "album.id"})
+        -#   .delete= link_to("Delete",  {action: "delete", id: album.id})
+    %button#add_album.add_button= link_to("Add album", new_collection_album_path(collection_id: @collection.id))
