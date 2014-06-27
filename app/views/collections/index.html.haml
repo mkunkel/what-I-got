@@ -3,7 +3,7 @@
   %h3 #{@no_collection}
   - @collections.each do |col|
     .collection_box
-      %h2.col= '• ' + col.title + ' •'
+      %h2.col= '- ' + col.title + ' -'
       %span
         .show= link_to("Show", {:action => 'show', :id => col.id })
         .edit= link_to("Edit", {:action => 'edit', :id => col.id})
