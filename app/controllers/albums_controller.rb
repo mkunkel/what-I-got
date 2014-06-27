@@ -22,6 +22,16 @@ class AlbumsController < ApplicationController
     @album = Album.find_by_id(params[:id])
   end
 
+  def delete
+    @album = Album.find_by_id(params[:id])
+  end
+
+  def destroy
+    album = Album.find_by_id(params[:id]).destroy
+    flash[:notice] = "#{album.title} was deleted successfully."
+    redirect_to(action: "index")
+  end
+
   private
 
   def album_params

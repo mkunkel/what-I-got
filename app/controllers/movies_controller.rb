@@ -22,6 +22,16 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by_id(params[:id])
   end
 
+  def delete
+    @movie = Movie.find_by_id(params[:id])
+  end
+
+  def destroy
+    movie = Movie.find_by_id(params[:id]).destroy
+    flash[:notice] = "#{movie.title} was deleted successfully."
+    redirect_to(action: "index")
+  end
+
   private
 
   def movie_params

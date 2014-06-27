@@ -1,0 +1,5 @@
+#delete_container.albums
+  .back_button= link_to("Return to albums", {action: "index"})
+  %h2 Delete album
+  %p Are you certain you want to delete #{@album.title}?
+  = button_to("Delete album", collection_album_path(id: @album.id, collection_id: @collection.id), method: :delete)

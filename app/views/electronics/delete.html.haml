@@ -1,0 +1,5 @@
+#delete_container.electronics
+  .back_button= link_to("Return to electronics", {action: "index"})
+  %h2 Delete electronic
+  %p Are you certain you want to delete #{@electronic.name}?
+  = button_to("Delete electronic", collection_electronic_path(id: @electronic.id, collection_id: @collection.id), method: :delete)

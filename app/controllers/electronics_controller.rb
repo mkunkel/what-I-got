@@ -22,6 +22,16 @@ class ElectronicsController < ApplicationController
     @electronic = Electronic.find_by_id(params[:id])
   end
 
+  def delete
+    @electronic = Electronic.find_by_id(params[:id])
+  end
+
+  def destroy
+    electronic = Electronic.find_by_id(params[:id]).destroy
+    flash[:notice] = "#{electronic.name} was deleted successfully."
+    redirect_to(action: "index")
+  end
+
   private
 
   def electronic_params

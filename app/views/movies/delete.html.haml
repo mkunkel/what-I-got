@@ -1,0 +1,5 @@
+#delete_container.movies
+  .back_button= link_to("Return to movies", {action: "index"})
+  %h2 Delete movie
+  %p Are you certain you want to delete #{@movie.title}?
+  = button_to("Delete movie", collection_movie_path(id: @movie.id, collection_id: @collection.id), method: :delete)
