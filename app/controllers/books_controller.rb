@@ -22,10 +22,6 @@ class BooksController < ApplicationController
     @book = Book.find_by_id(params[:id])
   end
 
-  def delete
-    @book = Book.find_by_id(params[:id])
-  end
-
   def destroy
     book = Book.find_by_id(params[:id]).destroy
     flash[:notice] = "#{book.title} was deleted successfully."
