@@ -1,6 +1,7 @@
 #albums_for.albums
   .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
-  %h1 Albums in #{current_user.username.capitalize}'s collection:
+  -# %h1 Albums in #{current_user.username.capitalize}'s collection:
+  %h1 - Albums -
   %h3 #{@no_albums}
   .albums_box
     - @albums.each do |album|

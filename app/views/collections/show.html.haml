@@ -1,6 +1,7 @@
 #show_container.collections
   .back_button= link_to("Return to collections", {action: "index"})
-  %h2 #{@collection.created_by.capitalize}'s #{@collection.title.downcase} collection
+  -# %h2 #{@collection.created_by.capitalize}'s #{@collection.title.downcase} collection
+  %h2 #{@collection.title.capitalize} collection
   .item_box
     #book_button= link_to("Books", collection_books_path(collection_id: @collection.id))
     #movie_button= link_to("Movies", collection_movies_path(collection_id: @collection.id))

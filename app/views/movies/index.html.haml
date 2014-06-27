@@ -1,10 +1,10 @@
 #movies_for.movies
   .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
-  %h1 Movies in #{current_user.username.capitalize}'s collection:
+  -# %h1 Movies in #{current_user.username.capitalize}'s collection:
+  %h1 - Movies -
   %h3 #{@no_books}
   .movies_box
     - @movies.each do |movie|
       .movie_box
         %h3.movie_list= link_to('"'+movie.title+'"', {action: "show", id: movie.id})
     %button#add_movie.add_button= link_to("Add movie", new_collection_movie_path(collection_id: @collection.id))
-        

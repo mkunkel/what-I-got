@@ -1,6 +1,7 @@
 #electronics_for.electronics
   .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
-  %h1 Electronics in #{current_user.username.capitalize}'s collection:
+  -# %h1 Electronics in #{current_user.username.capitalize}'s collection:
+  %h1 - Electronics -
   %h3 #{@no_electronics}
   .electronics_box
     - @electronics.each do |electronic|
