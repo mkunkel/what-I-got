@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    @books = Book.where(collection_id: params[:collection_id])
   end
 
   def create

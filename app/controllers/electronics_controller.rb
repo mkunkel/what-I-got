@@ -1,7 +1,7 @@
 class ElectronicsController < ApplicationController
 
   def index
-    @electronics = Electronic.all
+    @electronics = Electronic.where(collection_id: params[:collection_id])
   end
 
   def create

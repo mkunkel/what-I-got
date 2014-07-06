@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    @albums = Album.where(collection_id: params[:collection_id]).all
   end
 
   def create
