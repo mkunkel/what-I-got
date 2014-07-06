@@ -1,5 +1,5 @@
 #show_container.collections
-  .back_button= link_to("Return to collections", {action: "index"})
+  .back_button= link_to("Return to collections",collection_path(id: @collection.id))
   -# %h2 #{@collection.created_by.capitalize}'s #{@collection.title.downcase} collection
   %h2 #{@collection.title.capitalize} collection
   .item_box

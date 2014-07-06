@@ -1,10 +1,9 @@
 #books_for.books
-  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
-  -# %h1 Books in #{current_user.username.capitalize}'s collection:
+  .back_button= link_to("Return to collections", collection_path(id: @collection.id))
   %h1 - Books -
   %h3 #{@no_books}
   .books_box
     - @books.each do |book|
       .book_box
-        %h3.book_list= link_to('"'+book.title+'"', {action: "show", id: book.id})
+        %h3.book_list= link_to('"'+book.title+'"', collection_book_path(collection_id: @collection.id, id: book.id))
     %button#add_book.add_button= link_to("Add book", new_collection_book_path(collection_id: @collection.id))

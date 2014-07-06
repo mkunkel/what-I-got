@@ -5,10 +5,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :collections
+  resources :collections do
+    member do
+      get 'delete'
+    end
+  end
 
   resources :collections do
-    resources :books, :movies, :electronics, :albums
+    resources :books, :movies, :electronics, :albums do
+      member do
+        get 'delete'
+      end
+    end
   end
 
   match ':controller(/:action(/:id))', :via => [:get, :post, :put, :delete]

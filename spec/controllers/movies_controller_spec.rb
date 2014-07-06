@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe HomeController, :type => :controller do
+describe MoviesController, :type => :controller do
 
   describe "GET 'index'" do
     it "returns http success" do

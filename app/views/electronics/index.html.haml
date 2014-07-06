@@ -6,5 +6,5 @@
   .electronics_box
     - @electronics.each do |electronic|
       .electronic_box
-        %h3.electronic_list= link_to('"'+electronic.name+'"', {action: "show", id: electronic.id})
+        %h3.electronic_list= link_to('"'+electronic.name+'"', collection_electronic_path(id: electronic.id, collection_id: @collection.id))
     %button#add_electronic.add_electronic= link_to("Add electronic", new_collection_electronic_path(collection_id: @collection.id))

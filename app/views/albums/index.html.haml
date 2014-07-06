@@ -1,10 +1,10 @@
 #albums_for.albums
-  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  .back_button= link_to("Return to collections", collection_path(id: @collection.id))
   -# %h1 Albums in #{current_user.username.capitalize}'s collection:
   %h1 - Albums -
   %h3 #{@no_albums}
   .albums_box
     - @albums.each do |album|
       .album_box
-        %h3.album_list= link_to('"'+album.title+'"', {action: "show", id: album.id})
+        %h3.album_list= link_to('"'+album.title+'"', collection_album_path(collection_id: @collection.id, id: album.id))
     %button#add_album.add_button= link_to("Add album", new_collection_album_path(collection_id: @collection.id))

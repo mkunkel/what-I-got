@@ -1,9 +1,9 @@
 class Collection < ActiveRecord::Base
   belongs_to :user
-  has_many :books
-  has_many :movies
-  has_many :electronics
-  has_many :albums
+  has_many :books, dependent: :destroy
+  has_many :movies, dependent: :destroy
+  has_many :electronics, dependent: :destroy
+  has_many :albums, dependent: :destroy
 
   validates :user_id, presence: true
 end

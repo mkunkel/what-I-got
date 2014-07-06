@@ -1,5 +1,4 @@
 class ElectronicsController < ApplicationController
-  before_filter :find_collection
 
   def index
     @electronics = Electronic.all
@@ -8,9 +7,9 @@ class ElectronicsController < ApplicationController
   def create
     @electronic = @collection.electronics.new(electronic_params)
     if @electronic.save
-      redirect_to(action: 'index')
+      redirect_to(action: :index)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -19,26 +18,26 @@ class ElectronicsController < ApplicationController
   end
 
   def show
-    @electronic = Electronic.find_by_id(params[:id])
+    electronic
   end
 
   def delete
-    @electronic = Electronic.find_by_id(params[:id])
+    electronic
   end
 
   def destroy
-    electronic = Electronic.find_by_id(params[:id]).destroy
-    flash[:notice] = "#{electronic.name} was deleted successfully."
-    redirect_to(action: "index")
+    electronic.destroy
+    flash[:notice] = "#{@electronic.name} was deleted successfully."
+    redirect_to(action: :index)
   end
 
   private
 
-  def electronic_params
-    params.require(:electronic).permit(:name, :serial, :collection_id, :id)
+  def electronic
+    @electronic ||= Electronic.find_by_id(params[:id])
   end
 
-  def find_collection
-    @collection ||= Collection.find(params[:collection_id])
+  def electronic_params
+    params.require(:electronic).permit(:name, :serial, :collection_id, :id)
   end
 end

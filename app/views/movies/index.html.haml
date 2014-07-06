@@ -1,5 +1,5 @@
 #movies_for.movies
-  .back_button= link_to("Return to collections", {controller: "Collections", action: "index"})
+  .back_button= link_to("Return to collection", collection_path(id: @collection.id))
   -# %h1 Movies in #{current_user.username.capitalize}'s collection:
   %h1 - Movies -
   %h3 #{@no_books}

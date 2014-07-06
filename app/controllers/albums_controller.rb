@@ -1,5 +1,4 @@
 class AlbumsController < ApplicationController
-  before_filter :find_collection
 
   def index
     @albums = Album.all
@@ -8,9 +7,9 @@ class AlbumsController < ApplicationController
   def create
     @album = @collection.albums.new(album_params)
     if @album.save
-      redirect_to(action: 'index')
+      redirect_to(action: :index)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -19,26 +18,26 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find_by_id(params[:id])
+    album
   end
 
   def delete
-    @album = Album.find_by_id(params[:id])
+    album
   end
 
   def destroy
-    album = Album.find_by_id(params[:id]).destroy
-    flash[:notice] = "#{album.title} was deleted successfully."
-    redirect_to(action: "index")
+    album.destroy
+    flash[:notice] = "#{@album.title} was deleted successfully."
+    redirect_to(action: :index)
   end
 
   private
 
-  def album_params
-    params.require(:album).permit(:title, :artist, :genre, :rating, :collection_id, :id)
+  def album
+    @album ||= Album.find_by_id(params[:id])
   end
 
-  def find_collection
-    @collection ||= Collection.find(params[:collection_id])
+  def album_params
+    params.require(:album).permit(:title, :artist, :genre, :rating, :collection_id, :id)
   end
 end

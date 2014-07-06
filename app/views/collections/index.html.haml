@@ -5,6 +5,6 @@
     .collection_box
       %h2.col= '- ' + col.title + ' -'
       %span
-        .show= link_to("Show", {:action => 'show', :id => col.id })
-        .edit= link_to("Edit", {:action => 'edit', :id => col.id})
-        .delete= link_to("Delete",  {:action => 'delete', :id => col.id})
+        .show= link_to("Show", collection_path(id: col.id))
+        .edit= link_to("Edit", edit_collection_path(id: col.id))
+        .delete= link_to("Delete",  delete_collection_path(id: col.id))

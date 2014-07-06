@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  before_filter :find_collection
 
   def index
     @books = Book.all
@@ -8,9 +7,9 @@ class BooksController < ApplicationController
   def create
     @book = @collection.books.new(book_params)
     if @book.save
-      redirect_to(action: 'index')
+      redirect_to(action: :index)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -19,26 +18,26 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find_by_id(params[:id])
+    book
   end
 
   def delete
-    @book = Book.find_by_id(params[:id])
+    book
   end
 
   def destroy
-    book = Book.find_by_id(params[:id]).destroy
-    flash[:notice] = "#{book.title} was deleted successfully."
-    redirect_to(action: "index")
+    book.destroy
+    flash[:notice] = "#{@book.title} was deleted successfully."
+    redirect_to(action: :index)
   end
 
   private
 
-  def book_params
-    params.require(:book).permit(:title, :author, :genre, :rating, :collection_id, :id)
+  def book
+    @book ||= Book.find_by_id(params[:id])
   end
 
-  def find_collection
-    @collection ||= Collection.find(params[:collection_id])
+  def book_params
+    params.require(:book).permit(:title, :author, :genre, :rating, :collection_id, :id)
   end
 end

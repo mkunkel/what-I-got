@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  before_filter :find_collection
 
   def index
     @collections = current_user.collections
@@ -22,35 +23,26 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def delete
-    @collection = Collection.find_by_id(params[:id])
-  end
-
   def destroy
-    collection = Collection.find_by_id(params[:id]).destroy
-    flash[:notice] = "#{collection.title} was deleted successfully."
-    redirect_to(action: "index")
-  end
-
-  def edit
-    @collection = Collection.find_by_id(params[:id])
+    @collection.destroy
+    flash[:notice] = "#{@collection.title} was deleted successfully."
+    redirect_to(action: :index)
   end
 
   def update
-    @collection = Collection.find_by_id(params[:id])
     if @collection.update_attributes(collection_params)
       flash[:notice] = "Collection updated successfully"
-      redirect_to(action: "index")
+      redirect_to(action: :index)
     else
       render :edit
     end
   end
 
-  def show
-    @collection = Collection.find_by_id(params[:id])
-  end
-
   private
+
+  def find_collection
+    @collection ||= Collection.find_by_id(params[:id])
+  end
 
   def collection_params
     params.require(:collection).permit(:title, :user, :created_by, :book)
